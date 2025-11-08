@@ -1,65 +1,139 @@
 import Image from "next/image";
+import { IconCloud } from "@/components/ui/icon-cloud";
+import { ContactSection } from "./components/contacts";
 
+const slugs = [
+  "typescript",
+  "javascript",
+  "dart",
+  "java",
+  "react",
+  "flutter",
+  "android",
+  "html5",
+  "css3",
+  "nodedotjs",
+  "express",
+  "nextdotjs",
+  "prisma",
+  "amazonaws",
+  "postgresql",
+  "firebase",
+  "nginx",
+  "vercel",
+  "testinglibrary",
+  "jest",
+  "cypress",
+  "docker",
+  "git",
+  "jira",
+  "github",
+  "gitlab",
+  "visualstudiocode",
+  "androidstudio",
+  "sonarqube",
+  "figma",
+  "coolify",
+  "ruby"
+]
 export default function Home() {
+  const images = slugs.map(
+    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
+  )
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-10">
+      {/* Content Wrapper */}
+      <div className="flex flex-col items-center text-center max-w-3xl gap-6 mx-auto">
+
+        {/* Profile Image */}
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src="/mypic.jpg"
+          alt="ON CHHUNLIN"
+          width={160}
+          height={160}
+          className="rounded-full w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-cover shadow-md"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+        {/* Name */}
+        <h1 className="text-primary text-2xl sm:text-3xl md:text-4xl font-bold">
+          ON CHHUNLIN
+        </h1>
+
+        {/* About Me Section */}
+        <div className="text-base-content/80 text-sm sm:text-base leading-relaxed px-2 sm:px-4 text-center">
+          <h2 className="font-bold text-primary text-lg sm:text-xl mb-2">About Me</h2>
+
+          <p>
+            I am a <span className="font-bold text-primary">Full Stack Developer</span> with a strong passion for building modern, efficient, and user-friendly software. I enjoy working across the entire development process, from designing intuitive interfaces to developing reliable backend systems. I am always eager to learn new technologies and grow in an ever-evolving industry.
+          </p>
+
+          <br />
+
+          <p>
+            In my free time, I enjoy playing music, exploring new tools and frameworks, and watching movies to refresh creativity. I am motivated by the challenge of turning ideas into real applications that solve meaningful problems. My focus is on writing clean, maintainable code and continuously improving my problem-solving skills.
+          </p>
+
+          <br />
+
+          <p>
+            I’m always open to collaboration, new opportunities, and meaningful projects.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Cloud Icon */}
+        <div className="w-full max-w-sm sm:max-w-md md:max-w-lg">
+          <IconCloud images={images} />
+
         </div>
-      </main>
+
+        {/* Projects Section */}
+        <div>
+          <h2 className="font-bold text-primary text-lg sm:text-xl mb-4">Experiences</h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
+              <figure>
+                <img src="/bmb.png" alt="BookMeBus" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title text-primary">BookMeBus</h2>
+                <p className="text-sm text-start">BookMeBus is a bus booking application that allows users to book bus tickets online. It provides a user-friendly interface for users to search for bus tickets, view available seats, and make payments. The application also includes a feature to track the status of the bus ticket and receive notifications when the ticket is confirmed.</p>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">Read more</button>
+                </div>
+              </div>
+            </div>
+            <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
+              <figure>
+                <img src="/ksh.png" alt="KSH" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title text-primary">KSH</h2>
+                <p className="text-sm text-start">KSH is a bus booking application that allows users to book bus tickets online. It provides a user-friendly interface for users to search for bus tickets, view available seats, and make payments. The application also includes a feature to track the status of the bus ticket and receive notifications when the ticket is confirmed.</p>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">Read more</button>
+                </div>
+              </div>
+            </div>
+            <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
+              <figure>
+                <img src="/nhch.png" alt="NHCH" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title text-primary">NHCH</h2>
+                <p className="text-sm text-start">NHCH is a bus booking application that allows users to book bus tickets online. It provides a user-friendly interface for users to search for bus tickets, view available seats, and make payments. The application also includes a feature to track the status of the bus ticket and receive notifications when the ticket is confirmed.</p>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">Read more</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Section */}
+       <div className="mt-5">
+          <ContactSection />
+        </div>
+      </div>
     </div>
   );
 }
