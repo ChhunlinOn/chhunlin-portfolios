@@ -34,7 +34,7 @@ export function ContactSection() {
     {
       icon: <Icons.phone className="size-5" />,
       label: "Phone",
-      url: "tel:+1234567890",
+      url: "tel:+855979033023",
       color: "hover:bg-purple-50 dark:hover:bg-purple-950",
     },
     {
@@ -50,7 +50,7 @@ export function ContactSection() {
       <div className="rounded-lg bg-card p-6 shadow-sm">
         <h2 className="font-bold text-lg sm:text-xl mb-6 text-center text-foreground text-primary">Contact Me</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-items-center">
           {contactLinks.map((link) => (
             <a
               key={link.label}
