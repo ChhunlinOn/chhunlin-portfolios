@@ -1,40 +1,38 @@
 import Image from "next/image";
 import { IconCloud } from "@/components/ui/icon-cloud";
 import { ContactSection } from "./components/contacts";
+import Link from "next/link";
 
 const slugs = [
   "typescript",
   "javascript",
   "dart",
-  "java",
   "react",
   "flutter",
-  "android",
   "html5",
   "css3",
   "nodedotjs",
   "express",
   "nextdotjs",
   "prisma",
-  "amazonaws",
   "postgresql",
-  "firebase",
-  "nginx",
   "vercel",
-  "testinglibrary",
-  "jest",
-  "cypress",
   "docker",
   "git",
   "jira",
   "github",
-  "gitlab",
   "visualstudiocode",
-  "androidstudio",
-  "sonarqube",
   "figma",
   "coolify",
-  "ruby"
+  "ruby",
+  "notion",
+  "mongodb",
+  "vite",
+  "tailwindcss",
+  "jenkins",
+  "contabo",
+  "cloudflare",
+  "namecheap"
 ]
 export default function Home() {
   const images = slugs.map(
@@ -98,7 +96,7 @@ export default function Home() {
                 <h2 className="card-title text-primary">BookMeBus</h2>
                 <p className="text-sm text-start">BookMeBus is a bus booking application that allows users to book bus tickets online. It provides a user-friendly interface for users to search for bus tickets, view available seats, and make payments. The application also includes a feature to track the status of the bus ticket and receive notifications when the ticket is confirmed.</p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Read more</button>
+                  <Link href="/pages/experiences/1" className="btn btn-primary">Read more</Link>
                 </div>
               </div>
             </div>
@@ -108,9 +106,9 @@ export default function Home() {
               </figure>
               <div className="card-body">
                 <h2 className="card-title text-primary">KSH</h2>
-                <p className="text-sm text-start">KSH is a bus booking application that allows users to book bus tickets online. It provides a user-friendly interface for users to search for bus tickets, view available seats, and make payments. The application also includes a feature to track the status of the bus ticket and receive notifications when the ticket is confirmed.</p>
+                <p className="text-sm text-start">Kampuchea Sëla Handicap Organization is a Cambodian non-profit empowering adults with intellectual disabilities from disadvantaged families. They deliver vocational training, community living programs and social-enterprise opportunities to support autonomy, integration and recognition in Cambodian society.</p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Read more</button>
+                  <Link href="/pages/experiences/2" className="btn btn-primary">Read more</Link>
                 </div>
               </div>
             </div>
@@ -120,9 +118,9 @@ export default function Home() {
               </figure>
               <div className="card-body">
                 <h2 className="card-title text-primary">NHCH</h2>
-                <p className="text-sm text-start">NHCH is a bus booking application that allows users to book bus tickets online. It provides a user-friendly interface for users to search for bus tickets, view available seats, and make payments. The application also includes a feature to track the status of the bus ticket and receive notifications when the ticket is confirmed.</p>
+                <p className="text-sm text-start">New Hope for Orphans provides Christ-centered care and education for children across Cambodia. As our programs expand, we cannot sustain them alone. We are grateful for our long-term partners whose financial support and shared knowledge strengthen our mission and help us continue serving and empowering children.</p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Read more</button>
+                  <Link href="/pages/experiences/3" className="btn btn-primary">Read more</Link>
                 </div>
               </div>
             </div>
