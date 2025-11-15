@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IconCloud } from "@/components/ui/icon-cloud";
 import { ContactSection } from "./components/contacts";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const slugs = [
   "typescript",
@@ -90,7 +91,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
               <figure>
-                <img src="/bmb.png" alt="BookMeBus" />
+                <Image src="/bmb.png" alt="BookMeBus" width={300} height={200} />
               </figure>
               <div className="card-body">
                 <h2 className="card-title text-primary">BookMeBus</h2>
@@ -102,7 +103,7 @@ export default function Home() {
             </div>
             <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
               <figure>
-                <img src="/ksh.png" alt="KSH" />
+                <Image src="/ksh.png" alt="KSH" width={300} height={200} />
               </figure>
               <div className="card-body">
                 <h2 className="card-title text-primary">KSH</h2>
@@ -114,7 +115,7 @@ export default function Home() {
             </div>
             <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
               <figure>
-                <img src="/nhch.png" alt="NHCH" />
+                <Image src="/nhch.png" alt="NHCH" width={300} height={200} />
               </figure>
               <div className="card-body">
                 <h2 className="card-title text-primary">NHCH</h2>
@@ -122,6 +123,35 @@ export default function Home() {
                 <div className="card-actions justify-end">
                   <Link href="/pages/experiences/3" className="btn btn-primary">Read more</Link>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Education Section */}
+        <div>
+          <h2 className="font-bold text-primary text-lg sm:text-xl mb-4">Educations</h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
+              <figure>
+                <Image src="https://res.cloudinary.com/deszfzhei/image/upload/v1763193792/yupzzeioytvjkjy678ky.jpg" alt="PSE Institute" width={300} height={200} />
+              </figure>
+              <div className="card-body">
+                <Link href="/pages/education/1">
+                  <h2 className="card-title text-primary flex items-center">PSE Institute <ArrowRight size={16} /></h2>
+                </Link>
+                <p className="text-sm">2023-2025 Graduate</p>
+              </div>
+            </div>
+            <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
+              <figure>
+                <Image src="https://res.cloudinary.com/deszfzhei/image/upload/v1763194040/ka1wvk4wcnnjbluhxpf1.jpg" alt="Grade 9" width={300} height={200} />
+              </figure>
+              <div className="card-body">
+                <Link href="/pages/education/2">
+                  <h2 className="card-title text-primary flex items-center">Grade 9 <ArrowRight size={16} /></h2>
+                </Link>
+                <p className="text-sm">2022 Graduate</p>
               </div>
             </div>
           </div>
