@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 import { Lens } from "@/components/ui/lens"
+import Image from "next/image"
 
 const data = [
   {
@@ -18,6 +19,7 @@ const data = [
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762599231/ldszyhcmnbemwcypv4l5.jpg",
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762599250/xsdazjmrrjv4zuwtgprc.jpg"
     ],
+    tech_stack: ["Ruby", "Rails"]
   },
   {
     id: "2",
@@ -35,6 +37,7 @@ const data = [
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762605335/a4evve3udrjoiuqr37wj.jpg",
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762605359/duoc7rsqdfp5lpstc6gq.jpg",
     ],
+    tech_stack: ["Next.js", "PostgreSQL", "TailwindCSS", "DaisyUI","Contabo", "Namecheap", "Cloudflare", "Coolify"]
   },
   {
     id: "3",
@@ -44,12 +47,27 @@ const data = [
     image: "/nhch.png",
     certificate: "",
     album: [],
+    tech_stack: ["Next.js", "TailwindCSS", "Namecheap", "Cloudflare", "Figma", "Contabo", "Coolify"]
   },
 ]
 
+const techIconMap: Record<string, string> = {
+  "Ruby": "ruby",
+  "Rails": "rubyonrails",
+  "Next.js": "nextdotjs",
+  "PostgreSQL": "postgresql",
+  "TailwindCSS": "tailwindcss",
+  "DaisyUI": "daisyui",
+  "Contabo": "contabo",
+  "Namecheap": "namecheap",
+  "Cloudflare": "cloudflare",
+  "Coolify": "coolify",
+  "Figma": "figma"
+}
+
 export default async function ExperienceDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-
+  
   const experience = data.find((item) => item.id === id)
 
   if (!experience) {
@@ -94,6 +112,26 @@ export default async function ExperienceDetail({ params }: { params: Promise<{ i
         <div className="mb-8 md:mb-12">
           <p className="text-base md:text-lg leading-relaxed text-foreground/90">{experience.description}</p>
         </div>
+
+        {experience.tech_stack && experience.tech_stack.length > 0 && (
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">Tech Stack</h2>
+            <div className="flex flex-wrap gap-4">
+              {experience.tech_stack.map((tech) => (
+                <div key={tech} className="flex items-center gap-2 bg-muted/50 rounded-lg px-3 py-2">
+                  <Image 
+                    src={`https://cdn.simpleicons.org/${techIconMap[tech] || 'code'}/${techIconMap[tech] || 'code'}`} 
+                    alt={tech} 
+                    width={20} 
+                    height={20}
+                    unoptimized
+                  />
+                  <span className="text-sm font-medium text-foreground">{tech}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {experience.certificate && (
             <div className="mb-8 md:mb-12">

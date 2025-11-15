@@ -17,31 +17,31 @@ export function ContactSection() {
       icon: <Icons.gitHub className="size-5" />,
       label: "GitHub",
       url: "https://github.com/ChhunlinOn",
-      color: "hover:bg-slate-100 dark:hover:bg-slate-800",
+      color: "hover:bg-primary",
     },
     {
       icon: <Icons.gmail className="size-5" />,
       label: "Gmail",
       url: "mailto:onchhunlin@gmail.com",
-      color: "hover:bg-red-50 dark:hover:bg-red-950",
+      color: "hover:bg-primary",
     },
     {
       icon: <Icons.telegram className="size-5" />,
       label: "Telegram",
       url: "https://t.me/chhunlinon",
-      color: "hover:bg-blue-50 dark:hover:bg-blue-950",
+      color: "hover:bg-primary",
     },
     {
       icon: <Icons.phone className="size-5" />,
       label: "Phone",
       url: "tel:+855979033023",
-      color: "hover:bg-purple-50 dark:hover:bg-purple-950",
+      color: "hover:bg-primary",
     },
     {
       icon: <Icons.facebook className="size-5" />,
       label: "Facebook",
       url: "https://facebook.com/on.chhunlin",
-      color: "hover:bg-sky-50 dark:hover:bg-sky-900",
+      color: "hover:bg-primary",
     },
   ]
 
