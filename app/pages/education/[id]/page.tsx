@@ -10,7 +10,9 @@ const data = [
     description:
       "I attended PSE Institute from 2023 to 2025, focusing on software development and related technologies. This program equipped me with foundational skills in programming, problem-solving, and collaborative development practices essential for my career in tech.",
     image: "https://res.cloudinary.com/deszfzhei/image/upload/v1763193792/yupzzeioytvjkjy678ky.jpg",
-    certificate: [],
+    certificate: [
+        "https://res.cloudinary.com/deszfzhei/image/upload/v1763214740/tzyijxyjefvtgogpdgjd.jpg",
+    ],
     album: []
   },
   {

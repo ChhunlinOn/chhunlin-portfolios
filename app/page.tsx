@@ -132,20 +132,20 @@ export default function Home() {
         <div>
           <h2 className="font-bold text-primary text-lg sm:text-xl mb-4">Educations</h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
+            <div className="flex flex-col justify-between card bg-base-100 w-full sm:w-96 shadow-sm min-h-[400px]">
               <figure>
-                <Image src="https://res.cloudinary.com/deszfzhei/image/upload/v1763193792/yupzzeioytvjkjy678ky.jpg" alt="PSE Institute" width={300} height={200} />
+                <Image src="https://res.cloudinary.com/deszfzhei/image/upload/v1763216236/bz9skyv3lg9uyz3kwyns.png" alt="PSE Institute" width={300} height={200} />
               </figure>
-              <div className="card-body">
+              <div className="card-body mt-22">
                 <Link href="/pages/education/1">
                   <h2 className="card-title text-primary flex items-center">PSE Institute <ArrowRight size={16} /></h2>
                 </Link>
                 <p className="text-sm">2023-2025 Graduate</p>
               </div>
             </div>
-            <div className="card bg-base-100 w-full sm:w-96 shadow-sm">
+            <div className="card bg-base-100 w-full sm:w-96 shadow-sm min-h-[400px]">
               <figure>
-                <Image src="https://res.cloudinary.com/deszfzhei/image/upload/v1763194040/ka1wvk4wcnnjbluhxpf1.jpg" alt="Grade 9" width={300} height={200} />
+                <Image src="https://res.cloudinary.com/deszfzhei/image/upload/v1763215007/avrx47mzfrmuvkwcuw4b.png" alt="Grade 9" width={300} height={200} />
               </figure>
               <div className="card-body">
                 <Link href="/pages/education/2">
