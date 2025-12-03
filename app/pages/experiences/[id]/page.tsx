@@ -12,12 +12,13 @@ const data = [
     image: "/bmb.png",
     certificate: "https://res.cloudinary.com/deszfzhei/image/upload/v1762598732/xrwfmbxoxpnokxdclmst.jpg",
     album: [
+        "https://res.cloudinary.com/deszfzhei/image/upload/v1764743260/d553urb4ygdljfc2drxw.jpg",
+        "https://res.cloudinary.com/deszfzhei/image/upload/v1762599250/xsdazjmrrjv4zuwtgprc.jpg",
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762599127/zsiexjgfpqf1ey6gez3y.jpg",
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762599158/lxxptnwq9rbhexljaqi6.jpg",
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762599183/vtoam9odej8bywifa1bo.jpg",
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762599211/gycgilrwcul54uwebeno.jpg",
-        "https://res.cloudinary.com/deszfzhei/image/upload/v1762599231/ldszyhcmnbemwcypv4l5.jpg",
-        "https://res.cloudinary.com/deszfzhei/image/upload/v1762599250/xsdazjmrrjv4zuwtgprc.jpg"
+        "https://res.cloudinary.com/deszfzhei/image/upload/v1762599231/ldszyhcmnbemwcypv4l5.jpg"
     ],
     tech_stack: ["Ruby", "Rails"]
   },
