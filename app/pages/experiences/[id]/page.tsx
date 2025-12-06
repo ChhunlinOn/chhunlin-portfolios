@@ -1,8 +1,7 @@
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
-import { Lens } from "@/components/ui/lens"
 import Image from "next/image"
-
+import Imagepreview from "@/components/ui/imagepreview"
 const data = [
   {
     id: "1",
@@ -10,7 +9,9 @@ const data = [
     description:
       "I worked as a Software Developer at BookMeBus where I enhanced existing features and implemented new ones across the platform. My responsibilities also included debugging, improving performance, and ensuring the booking system ran smoothly for users.",
     image: "/bmb.png",
-    certificate: "https://res.cloudinary.com/deszfzhei/image/upload/v1762598732/xrwfmbxoxpnokxdclmst.jpg",
+    certificate: [
+      "https://res.cloudinary.com/deszfzhei/image/upload/v1762598732/xrwfmbxoxpnokxdclmst.jpg"
+    ],
     album: [
         "https://res.cloudinary.com/deszfzhei/image/upload/v1764743260/d553urb4ygdljfc2drxw.jpg",
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762599250/xsdazjmrrjv4zuwtgprc.jpg",
@@ -28,7 +29,7 @@ const data = [
     description:
       "I served as a Full Stack Developer building a management system for Kampuchea Sëla Handicap Organization. The platform supports the administration of individuals with disabilities, helping staff manage records, programs, and community support more efficiently.",
     image: "/ksh.png",
-    certificate: "",
+    certificate: [],
     album: [
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762605209/rrlkt0bgjehjtennzvhb.jpg",
         "https://res.cloudinary.com/deszfzhei/image/upload/v1762605238/umc81xu8xwqlqujnghsy.jpg",
@@ -46,8 +47,10 @@ const data = [
     description:
       "I worked as a Full Stack Developer on a freelance team of three to build the website for New Hope for Orphans. Our goal was to present their mission, provide transparency, and improve accessibility for supporters and partners across Cambodia.",
     image: "/nhch.png",
-    certificate: "",
-    album: [],
+    certificate: [],
+    album: [
+      "https://res.cloudinary.com/deszfzhei/image/upload/v1765036406/pcai2rhgsmkbhindzjt8.jpg",
+    ],
     tech_stack: ["Next.js", "TailwindCSS", "Namecheap", "Cloudflare", "Figma", "Contabo", "Coolify"]
   },
 ]
@@ -134,37 +137,29 @@ export default async function ExperienceDetail({ params }: { params: Promise<{ i
           </div>
         )}
 
-        {experience.certificate && (
-            <div className="mb-8 md:mb-12">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">Certificate</h2>
-                <Lens>
-                <div className="border border-border rounded-lg overflow-hidden cursor-pointer">
-                    <img
-                    src={experience.certificate || "/placeholder.svg"}
-                    alt={`${experience.title} Certificate`}
-                    className="w-full h-auto"
-                    />
-                </div>
-                </Lens>
-            </div>
+        {experience.certificate && experience.certificate.length > 0 && (
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
+              Certificates
+            </h2>
+
+            <Imagepreview
+              certificates={experience.certificate}
+              title={experience.title}
+            />
+          </div>
         )}
         {experience.album && experience.album.length > 0 && (
-        <div className="mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">Photo Gallery</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {experience.album.map((img, index) => (
-                <Lens key={`${img}-${index}`}>
-                <div className="overflow-hidden rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow cursor-pointer">
-                    <img
-                    src={img || "/placeholder.svg"}
-                    alt={`${experience.title} photo ${index + 1}`}
-                    className="w-full h-48 object-cover"
-                    />
-                </div>
-                </Lens>
-            ))}
-            </div>
-        </div>
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
+              Photos Gallery
+            </h2>
+
+            <Imagepreview
+              certificates={experience.album}
+              title={experience.title}
+            />
+          </div>
         )}
       </div>
     </main>
