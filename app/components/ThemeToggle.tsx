@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { ChevronDown } from 'lucide-react'
 
 const themes = [
@@ -13,23 +13,44 @@ const themes = [
 
 export default function ThemeToggle() {
   const [currentTheme, setCurrentTheme] = useState('light')
+  const hasMounted = useRef(false);
 
-  // Load theme from cookie/localStorage
+  // Initialize theme on mount
   useEffect(() => {
+    if (typeof window === 'undefined' || hasMounted.current) return;
+    
+    // Get saved theme from cookie or localStorage
     const cookieTheme = document.cookie
       .split('; ')
-      .find((r) => r.startsWith('theme='))?.split('=')[1]
-    const savedTheme = cookieTheme || localStorage.getItem('theme') || 'light'
-    setCurrentTheme(savedTheme)
-    document.documentElement.setAttribute('data-theme', savedTheme)
-  }, [])
+      .find((r) => r.startsWith('theme='))?.split('=')[1];
+    const savedTheme = cookieTheme || localStorage.getItem('theme') || 'light';
+    
+    // Only update if different from current theme
+    if (savedTheme !== currentTheme) {
+      // Use requestAnimationFrame to batch the state update
+      const rafId = requestAnimationFrame(() => {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        setCurrentTheme(savedTheme);
+      });
+      
+      return () => cancelAnimationFrame(rafId);
+    }
+    
+    hasMounted.current = true;
+  }, [currentTheme]);
+
+  // Handle theme changes and persist them
+  useEffect(() => {
+    if (typeof window === 'undefined' || !currentTheme) return;
+    
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('theme', currentTheme);
+    document.cookie = `theme=${currentTheme}; path=/; max-age=31536000; samesite=lax`;
+  }, [currentTheme]);
 
   const changeTheme = (theme: string) => {
-    setCurrentTheme(theme)
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-    document.cookie = `theme=${theme}; path=/; max-age=31536000; samesite=lax` 
-  }
+    setCurrentTheme(theme);
+  };
 
   return (
     <div className="fixed top-4 right-4 z-50">

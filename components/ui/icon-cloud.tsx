@@ -97,32 +97,42 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
   // Generate initial icon positions on a sphere
   useEffect(() => {
-    const items = icons || images || []
-    const newIcons: Icon[] = []
-    const numIcons = items.length || 20
+    const calculatePositions = () => {
+      const items = icons || images || []
+      const newIcons: Icon[] = []
+      const numIcons = items.length || 20
 
-    // Fibonacci sphere parameters
-    const offset = 2 / numIcons
-    const increment = Math.PI * (3 - Math.sqrt(5))
+      // Fibonacci sphere parameters
+      const offset = 2 / numIcons
+      const increment = Math.PI * (3 - Math.sqrt(5))
 
-    for (let i = 0; i < numIcons; i++) {
-      const y = i * offset - 1 + offset / 2
-      const r = Math.sqrt(1 - y * y)
-      const phi = i * increment
+      for (let i = 0; i < numIcons; i++) {
+        const y = i * offset - 1 + offset / 2
+        const r = Math.sqrt(1 - y * y)
+        const phi = i * increment
 
-      const x = Math.cos(phi) * r
-      const z = Math.sin(phi) * r
+        const x = Math.cos(phi) * r
+        const z = Math.sin(phi) * r
 
-      newIcons.push({
-        x: x * 100,
-        y: y * 100,
-        z: z * 100,
-        scale: 1,
-        opacity: 1,
-        id: i,
-      })
+        newIcons.push({
+          x: x * 100,
+          y: y * 100,
+          z: z * 100,
+          scale: 1,
+          opacity: 1,
+          id: i,
+        })
+      }
+      return newIcons
     }
-    setIconPositions(newIcons)
+
+    // Use requestAnimationFrame to batch the state update
+    const newPositions = calculatePositions()
+    const rafId = requestAnimationFrame(() => {
+      setIconPositions(newPositions)
+    })
+
+    return () => cancelAnimationFrame(rafId)
   }, [icons, images])
 
   // Resize canvas based on container
