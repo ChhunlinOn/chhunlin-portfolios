@@ -53,8 +53,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50">
-      <div className="dropdown dropdown-hover dropdown-end">
+    <div className="dropdown dropdown-hover dropdown-end">
       {/* Dropdown Button */}
       <div
         tabIndex={0}
@@ -90,7 +89,6 @@ export default function ThemeToggle() {
           ))}
         </ul>
       </div>
-    </div>
     </div>
   )
 }

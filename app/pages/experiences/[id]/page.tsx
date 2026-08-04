@@ -10,7 +10,8 @@ const data = [
       "I worked as a Software Developer at BookMeBus where I enhanced existing features and implemented new ones across the platform. My responsibilities also included debugging, improving performance, and ensuring the booking system ran smoothly for users.",
     image: "/bmb.png",
     certificate: [
-      "https://res.cloudinary.com/deszfzhei/image/upload/v1762598732/xrwfmbxoxpnokxdclmst.jpg"
+      "https://res.cloudinary.com/deszfzhei/image/upload/v1762598732/xrwfmbxoxpnokxdclmst.jpg",
+      "https://res.cloudinary.com/deszfzhei/image/upload/v1785850802/vfyj4zh97hcjfrxri0rf.jpg"
     ],
     album: [
         "https://res.cloudinary.com/deszfzhei/image/upload/v1764743260/d553urb4ygdljfc2drxw.jpg",
