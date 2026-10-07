@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeToggle from "./components/ThemeToggle";
+import { siteUrl, siteName, siteDescription, ogImage } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,28 +15,62 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ON CHHUNLIN",
-  description: "Full Stack Developer",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteName} | Full Stack Developer`,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  applicationName: siteName,
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  keywords: [
+    "ON CHHUNLIN",
+    "Chhunlin",
+    "Full Stack Developer",
+    "Software Developer",
+    "Web Developer",
+    "Cambodia",
+    "Phnom Penh",
+    "Next.js",
+    "React",
+    "Ruby on Rails",
+    "Flutter",
+    "Portfolio",
+  ],
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
   icons: {
     icon: '/logo.png',
+    apple: '/logo.png',
   },
   openGraph: {
     type: 'website',
-    title: 'ON CHHUNLIN',
-    description: 'Full Stack Developer',
+    url: '/',
+    siteName,
+    locale: 'en_US',
+    title: `${siteName} | Full Stack Developer`,
+    description: siteDescription,
     images: [
       {
-        url: 'https://res.cloudinary.com/deszfzhei/image/upload/v1765553979/obw410azxlahu0p6hj0l.jpg',
+        url: ogImage,
         width: 1200,
         height: 630,
+        alt: siteName,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ON CHHUNLIN',
-    description: 'Full Stack Developer',
-    images: ['https://res.cloudinary.com/deszfzhei/image/upload/v1765553979/obw410azxlahu0p6hj0l.jpg'],
+    title: `${siteName} | Full Stack Developer`,
+    description: siteDescription,
+    images: [ogImage],
   },
 };
 

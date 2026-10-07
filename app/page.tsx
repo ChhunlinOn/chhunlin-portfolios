@@ -6,6 +6,7 @@ import { ExperienceSection } from "./components/ExperienceSection";
 import { EducationSection } from "./components/EducationSection";
 import { GithubSection } from "./components/GithubSection";
 import { SectionHeading } from "./components/SectionHeading";
+import { siteUrl, siteName, siteDescription } from "@/lib/site";
 
 const slugs = [
   "typescript",
@@ -38,12 +39,35 @@ const slugs = [
   "cloudflare",
   "namecheap"
 ]
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteName,
+  url: siteUrl,
+  image: `${siteUrl}/mypic.jpg`,
+  jobTitle: "Full Stack Developer",
+  description: siteDescription,
+  email: "mailto:onchhunlin@gmail.com",
+  address: { "@type": "PostalAddress", addressCountry: "KH" },
+  alumniOf: { "@type": "EducationalOrganization", name: "PSE Institute" },
+  knowsAbout: ["TypeScript", "JavaScript", "React", "Next.js", "Node.js", "Ruby on Rails", "Flutter", "PostgreSQL", "Docker"],
+  sameAs: [
+    "https://github.com/ChhunlinOn",
+    "https://t.me/chhunlinon",
+    "https://facebook.com/on.chhunlin",
+  ],
+}
+
 export default function Home() {
   const images = slugs.map(
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
   )
   return (
     <main id="top" className="min-h-screen px-4 py-16 sm:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <div className="max-w-6xl mx-auto flex flex-col gap-20 sm:gap-24">
 
         {/* Hero */}
