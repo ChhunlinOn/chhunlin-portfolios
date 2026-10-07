@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { Icons } from "@/lib/icons"
+import { SectionHeading } from "./SectionHeading"
 
 interface ContactLink {
   icon: React.ReactNode
@@ -46,11 +47,10 @@ export function ContactSection() {
   ]
 
   return (
-    <div className="w-full max-w-xl mx-auto">
-      <div className="rounded-lg bg-card p-6 shadow-sm">
-        <h2 className="font-bold text-lg sm:text-xl mb-6 text-center text-foreground text-primary">Contact Me</h2>
-
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-items-center">
+    <section id="contact" className="scroll-mt-20">
+      <SectionHeading title="Contact Me" subtitle="I'm always open to new opportunities" />
+      <div className="w-full max-w-3xl mx-auto rounded-box bg-base-100 border border-base-content/10 p-6 shadow-sm">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
           {contactLinks.map((link) => (
             <a
               key={link.label}
@@ -62,22 +62,17 @@ export function ContactSection() {
                 navigator.clipboard.writeText(link.url.slice(4));
                 alert("Phone number copied to clipboard!");
               } : undefined}
-              className={`flex items-center gap-3 rounded-md px-4 py-3 transition-colors duration-200 ${link.color} border border-transparent hover:border-border group`}
+              className={`flex flex-col items-center justify-center gap-2 rounded-box px-4 py-4 bg-base-200 transition-colors duration-200 ${link.color} hover:text-primary-content group`}
               aria-label={link.label}
             >
-              <div className="flex items-center justify-center text-muted-foreground group-hover:text-foreground transition-colors">
-                {link.icon}
-              </div>
-              <span className="text-sm font-medium text-foreground flex-1">{link.label}</span>
-              <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-xs text-muted-foreground">→</span>
-              </div>
+              {link.icon}
+              <span className="text-sm font-medium">{link.label}</span>
             </a>
           ))}
         </div>
 
-        <p className="text-xs text-muted-foreground text-center mt-6">Click any link to get in touch</p>
+        <p className="text-xs text-base-content/60 text-center mt-6">Click any link to get in touch</p>
       </div>
-    </div>
+    </section>
   )
 }

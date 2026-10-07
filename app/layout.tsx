@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import SiteNav from "./components/SiteNav";
+import ThemeToggle from "./components/ThemeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,7 +49,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SiteNav>{children}</SiteNav>
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeToggle />
+        </div>
+        {children}
       </body>
     </html>
   );
