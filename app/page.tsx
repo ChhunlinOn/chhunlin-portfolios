@@ -5,6 +5,7 @@ import { AboutMeSection } from "./components/AboutMeSection";
 import { ExperienceSection } from "./components/ExperienceSection";
 import { EducationSection } from "./components/EducationSection";
 import { GithubSection } from "./components/GithubSection";
+import { SectionHeading } from "./components/SectionHeading";
 
 const slugs = [
   "typescript",
@@ -42,30 +43,38 @@ export default function Home() {
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
   )
   return (
-    <div id="top" className="min-h-screen flex flex-col items-center justify-center px-4 py-10">
-      {/* Content Wrapper */}
-      <div className="flex flex-col items-center text-center max-w-3xl gap-6 mx-auto">
+    <main id="top" className="min-h-screen px-4 py-16 sm:py-20">
+      <div className="max-w-6xl mx-auto flex flex-col gap-20 sm:gap-24">
 
-        {/* Profile Image */}
-        <Image
-          src="/mypic.jpg"
-          alt="ON CHHUNLIN"
-          width={160}
-          height={160}
-          className="rounded-full w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-cover shadow-md"
-        />
-
-        {/* Name */}
-        <h1 className="text-primary text-2xl sm:text-3xl md:text-4xl font-bold">
-          ON CHHUNLIN
-        </h1>
+        {/* Hero */}
+        <section className="flex flex-col items-center text-center gap-4 pt-4">
+          <Image
+            src="/mypic.jpg"
+            alt="ON CHHUNLIN"
+            width={176}
+            height={176}
+            priority
+            className="rounded-full w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-cover shadow-md ring-4 ring-primary/20"
+          />
+          <h1 className="text-primary text-3xl sm:text-4xl md:text-5xl font-bold">
+            ON CHHUNLIN
+          </h1>
+          <p className="text-base sm:text-lg text-base-content/70">Full Stack Developer</p>
+          <div className="flex flex-wrap justify-center gap-3 mt-2">
+            <a href="#experiences" className="btn btn-primary rounded-full">View my work</a>
+            <a href="#contact" className="btn btn-outline btn-primary rounded-full">Contact me</a>
+          </div>
+        </section>
 
         <AboutMeSection />
 
-        {/* Cloud Icon */}
-        <div className="w-full max-w-sm sm:max-w-md md:max-w-lg">
-          <IconCloud images={images} />
-        </div>
+        {/* Tech Stack */}
+        <section>
+          <SectionHeading title="Tech Stack" subtitle="Tools and technologies I work with" />
+          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto">
+            <IconCloud images={images} />
+          </div>
+        </section>
 
         <ExperienceSection />
 
@@ -73,11 +82,8 @@ export default function Home() {
 
         <GithubSection />
 
-        {/* Contact Section */}
-        <div id="contact" className="mt-5 scroll-mt-20">
-          <ContactSection />
-        </div>
+        <ContactSection />
       </div>
-    </div>
+    </main>
   );
 }
